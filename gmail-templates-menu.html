@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Template Email Rapidi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1a73e8;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .template-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .template-button {
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            text-align: left;
+        }
+        .template-button:hover {
+            background-color: #0d62c9;
+        }
+        .description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Template Email Rapidi</h1>
+        <p class="description">Clicca su un template per aprire Gmail con il messaggio precompilato:</p>
+        
+        <div class="template-list">
+            <button class="template-button" onclick="openTemplate('CBAM', 'prego%20notare%20che%20la%20merce%20oggetto%20di%20questa%20importazione%20ci%20risulta%20soggetto%20a%20dichiarazione%20CBAM%20(a%20cura%20dell%27importatore),%20il%20cliente%20dovra%27%20provvedere%20alla%20dichiarazione%20trimestrale.%20Per%20ulteriori%20chiarimenti%20o%20necessità%20potete%20eventualmente%20rivolgervi%20ai%20colleghi%20ai%20seguenti%20indirizzi:%0A%0Acapodici.andrea@sts-casu.com%0Aceccardi.giuliano@sts-casu.com%0Azangari.vincenzo@sts-casu.com%0A%0A.')">
+                Template: Notifica CBAM
+            </button>
+            
+            <button class="template-button" onclick="openTemplate('Richiesta documenti', 'Gentile%20cliente,%0A%0Aper%20completare%20la%20pratica%20di%20importazione%20necessitiamo%20dei%20seguenti%20documenti:%0A-%20Fattura%20commerciale%0A-%20Packing%20list%0A-%20Certificato%20di%20origine%0A%0AGrazie%20per%20la%20collaborazione.')">
+                Template: Richiesta Documenti
+            </button>
+            
+            <button class="template-button" onclick="openTemplate('Conferma spedizione', 'Gentile%20cliente,%0A%0Ala%20informiamo%20che%20la%20spedizione%20è%20stata%20correttamente%20avviata%20e%20che%20la%20merce%20è%20prevista%20in%20consegna%20entro%205%20giorni%20lavorativi.%0A%0AUn%20cordiale%20saluto.')">
+                Template: Conferma Spedizione
+            </button>
+            
+            <!-- Puoi aggiungere altri template qui seguendo lo stesso formato -->
+        </div>
+    </div>
+
+    <script>
+        function openTemplate(subject, body) {
+            const url = `https://mail.google.com/mail/?view=cm&fs=1&su=${encodeURIComponent(subject)}&body=${body}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
